@@ -22,9 +22,9 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
-  "orientation": "portrait",
+  "display": "minimal-ui",
+  "display_override": ["minimal-ui", "browser"],
+  "orientation": "any",
   "theme_color": "#f8fafc",
   "background_color": "#f8fafc",
   "categories": ["music", "education"],
