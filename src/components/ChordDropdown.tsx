@@ -69,19 +69,12 @@ const ChordDropdown: React.FC<ChordDropdownProps> = ({
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, [isOpen]);
-
+    return () => document.removeEventListener('mousedown', handleClickOutside);  }, []);
+  
   const handleChordSelect = (chord: string) => {
     onChordSelect(chord);
     setIsOpen(false);
-    setSearchTerm('');
+    setSearchTerm(''); // Очищаем поиск при выборе аккорда
   };
 
   const toggleDropdown = () => {

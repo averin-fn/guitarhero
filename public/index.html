@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     
-    <!-- Viewport для PWA без зума и скролла -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <!-- Viewport для PWA с нормальным скроллом -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     
     <!-- Цвета темы -->
     <meta name="theme-color" content="#667eea" />
@@ -47,22 +47,6 @@
         -moz-user-select: text;
         -ms-user-select: text;
         user-select: text;
-      }
-      
-      /* Убираем скролл и делаем полный экран */
-      html, body {
-        overflow: hidden;
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      
-      #root {
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
       }
     </style>
     
