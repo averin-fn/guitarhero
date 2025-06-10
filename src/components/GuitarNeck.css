@@ -1,0 +1,242 @@
+.guitar-neck {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+}
+
+.neck-container {
+  background: linear-gradient(to right, #8b4513, #a0522d);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #654321;
+}
+
+.fret-numbers {
+  display: grid;
+  grid-template-columns: 40px repeat(5, 1fr);
+  gap: 0;
+  margin-bottom: 8px;
+  padding-left: 40px;
+}
+
+.fret-number-spacer {
+  width: 40px;
+}
+
+.fret-number {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f7fafc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.strings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.string-row {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.string-label {
+  width: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f7fafc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  /* Порядок струн сверху вниз: E(1), B(2), G(3), D(4), A(5), E(6) */
+}
+
+.frets-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.frets-row::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #c0c0c0, #a0a0a0);
+  transform: translateY(-50%);
+  z-index: 0;
+  border-radius: 1px;
+}
+
+.fret {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.fret:not(:first-child) {
+  border-left: 2px solid #654321;
+}
+
+.fret:first-child {
+  border-left: 4px solid #4a4a4a;
+}
+
+.finger-dot {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ff6b6b, #e74c3c);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 2px solid #fff;
+  animation: fingerPress 0.3s ease;
+}
+
+.open-marker {
+  font-size: 1.5rem;
+  color: #48bb78;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation: openString 0.3s ease;
+}
+
+.mute-marker {
+  font-size: 1.5rem;
+  color: #e53e3e;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  animation: muteString 0.3s ease;
+}
+
+.chord-instructions {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.instruction-text {
+  font-size: 0.75rem;
+  color: #718096;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+@keyframes fingerPress {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes openString {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes muteString {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(90deg);
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 480px) {
+  .neck-container {
+    padding: 12px;
+  }
+  
+  .fret-numbers {
+    margin-bottom: 6px;
+  }
+  
+  .fret-number {
+    font-size: 0.75rem;
+  }
+  
+  .string-label {
+    font-size: 0.875rem;
+  }
+  
+  .fret {
+    height: 32px;
+  }
+  
+  .finger-dot {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .open-marker,
+  .mute-marker {
+    font-size: 1.25rem;
+  }
+  
+  .instruction-text {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .fret {
+    height: 28px;
+  }
+  
+  .finger-dot {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .open-marker,
+  .mute-marker {
+    font-size: 1.125rem;
+  }
+  
+  .string-label {
+    font-size: 0.75rem;
+  }
+  
+  .fret-number {
+    font-size: 0.625rem;
+  }
+}

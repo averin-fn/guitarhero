@@ -1,0 +1,110 @@
+.chord-selector {
+  text-align: center;
+}
+
+.selector-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 16px;
+}
+
+.chord-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.chord-button {
+  position: relative;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chord-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.chord-button.selected {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-color: #667eea;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.chord-button.learned {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  border-color: #48bb78;
+  color: white;
+}
+
+.chord-button.learned.selected {
+  background: linear-gradient(135deg, #38a169, #2f855a);
+}
+
+.chord-text {
+  position: relative;
+  z-index: 1;
+}
+
+.check-icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #38a169;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 480px) {
+  .chord-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  .chord-button {
+    padding: 12px 4px;
+    font-size: 1rem;
+    min-height: 50px;
+  }
+  
+  .selector-title {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .chord-grid {
+    gap: 6px;
+  }
+  
+  .chord-button {
+    padding: 10px 4px;
+    font-size: 0.875rem;
+    min-height: 45px;
+  }
+}
