@@ -4,13 +4,22 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     
-    <!-- Viewport для PWA с поддержкой notch -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Viewport для PWA с поддержкой notch и полноэкранным режимом -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
     
-    <!-- Цвета темы -->
+    <!-- Цвета темы для полноэкранного режима -->
     <meta name="theme-color" content="#f8fafc" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#f8fafc" />
     <meta name="msapplication-navbutton-color" content="#f8fafc" />
+    
+    <!-- Статус бар настройки -->
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Полноэкранный режим для Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-status-bar-style" content="default" />
     
     <!-- PWA мета-теги -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -47,6 +56,31 @@
         -moz-user-select: text;
         -ms-user-select: text;
         user-select: text;
+      }
+      
+      /* Полноэкранный режим для Android */
+      html {
+        overflow-x: hidden;
+        background-color: #f8fafc !important;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f8fafc !important;
+      }
+      
+      #root {
+        width: 100%;
+        background-color: #f8fafc !important;
+      }
+      
+      /* Фикс для Android status bar */
+      @supports (display-mode: standalone) {
+        body {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
       }
     </style>
     

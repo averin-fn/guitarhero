@@ -22,10 +22,11 @@
     }
   ],
   "start_url": ".",
-  "display": "fullscreen",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "portrait",
-  "theme_color": "#667eea",
-  "background_color": "#667eea",
+  "theme_color": "#f8fafc",
+  "background_color": "#f8fafc",
   "categories": ["music", "education"],
   "lang": "ru"
 }
